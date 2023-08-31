@@ -31,6 +31,7 @@ class AccountController {
             };
             const newAccount = new Account(data);
             await newAccount.save();
+
             res.status(201).send({
                 message: Messages.accountCreated,
                 data: {
@@ -45,6 +46,47 @@ class AccountController {
             });
         }
     )
+
+    resolveAccountHandler = catchAsync(async (req: Request, res: Response, next:NextFunction) =>{
+        const { account_number } = req.body;
+        // Check if account_number is empty or null
+        if (!account_number) {
+            return res.status(400).send({
+                message: "Account number is required.",
+                status: false
+            });
+        }
+        const account = await Account.findOne({ account_number }).select('-createdAt -updatedAt -__v');
+
+        if(account){
+            return res.status(200).send({
+                message: Messages.accountRetrieved,
+                data: {"Account details": account},
+                status: true
+            })
+        }
+        return res.status(404).send({
+            message: Messages.accountNotExist,
+            status: false
+        });
+    })
+
+    getAccountsHandler = catchAsync(async(req: Request, res: Response, next: NextFunction) => {
+        const accounts = await Account.find().select('-createdAt -updatedAt -__v');
+        if (accounts.length === 0) {
+            return res.status(404).json({
+                message: Messages.noAccounts,
+                status: false
+            });
+        }
+
+        return res.status(200).json({
+            message: Messages.foundAccounts,
+            data: accounts,
+            status: true
+        });
+    })
+
 }
 
 export default new AccountController()

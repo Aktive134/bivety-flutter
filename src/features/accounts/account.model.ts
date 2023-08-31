@@ -6,7 +6,7 @@ const accountSchema = new mongoose.Schema(
     dob: { type: String },
     account_type: { type: String },
     account_number: { type: Number },
-    intial_balance: { type: Number }
+    initial_balance: { type: Number }
   },
   {
     timestamps: true,

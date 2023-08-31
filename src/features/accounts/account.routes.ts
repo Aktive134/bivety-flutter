@@ -2,10 +2,19 @@ import { Router } from 'express';
 import accountController from './account.controller';
 import validateAccountDetails from '../../middleware/validate-account-details';
 
-const { createAccountHandler } = accountController;
+const {
+  createAccountHandler,
+  resolveAccountHandler,
+  getAccountsHandler,
+} = accountController
 
 const accountRouter = Router();
 
-accountRouter.post("/accounts", validateAccountDetails, createAccountHandler);
+accountRouter
+  .route('/accounts')
+  .post(validateAccountDetails, createAccountHandler)
+  .get(resolveAccountHandler);
+
+accountRouter.get('/all-accounts', getAccountsHandler);
 
 export default accountRouter
