@@ -13,12 +13,10 @@ An API that allows users to:
 - retrieve account details with an account number
 - retreive all account numbers
 
-- [github repository](https://github.com/Aktive134/bivety-flutter)
-- [API URL](https://bivety-bank.onrender.com/)
-
-
-## Documentation
-- [Postman doc](https://documenter.getpostman.com/view/21377887/2s9Y5crzYL)
+## Documentation and links
+- Postmann: [Postman doc](https://documenter.getpostman.com/view/21377887/2s9Y5crzYL)
+- Github: [github repository](https://github.com/Aktive134/bivety-flutter)
+- Hosted url: [API URL](https://bivety-bank.onrender.com/)
 
 ## How to run application locally
 run the following command:
