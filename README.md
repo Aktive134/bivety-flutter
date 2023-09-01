@@ -21,8 +21,13 @@ An API that allows users to:
 - [Postman doc](https://documenter.getpostman.com/view/21377887/2s9Y5crzYL)
 
 ## How to run application locally
-run the following command
+run the following command:
+
 npm run devstart
+
+or
+
+npm run postinstall, followed by npm start
 
 
 
