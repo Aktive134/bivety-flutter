@@ -16,7 +16,7 @@ class AccountController {
             //check if the user already exists
             const account = await Account.findOne({fullname});
             if(account) {
-                return res.status(400).send({
+                return res.status(200).send({
                     message: `${Messages.accountExist} ${account.account_number}`,
                     status: false
                 });
