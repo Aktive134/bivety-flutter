@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const accountSchema = new mongoose.Schema(
   {
-    fullname: { type: String, unique: true },
+    fullname: { type: String },
     dob: { type: String },
     account_type: { type: String },
     account_number: { type: Number },
